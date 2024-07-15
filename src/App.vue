@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <button>fff</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
+  name: 'App',
+  components: {},
+  computed: {
+    ...mapGetters('users', ['getUserList']),
+  },
+  mounted() {
+    this.fetchUsers();
+  },
+  methods: {
+    ...mapActions('users', ['fetchUsers']),
   },
 };
 </script>
