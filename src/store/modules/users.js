@@ -1,14 +1,23 @@
 import axios from '@/plugins/axios';
 
 const usersStore = {
-  state: {},
-  getters: {},
-  mutations: {},
+  getters: {
+    getUserList: state => {
+      return state.userList;
+    },
+  },
+  state: {
+    userList: null,
+  },
+  mutations: {
+    SET_USERS(state, payload) {
+      state.userList = payload;
+    },
+  },
   actions: {
-    async fetchUsers(context) {
-      console.log(context);
+    async fetchUsers({ commit }) {
       const response = await axios.get('/users');
-      console.log(response);
+      commit('SET_USERS', response);
     },
   },
 };

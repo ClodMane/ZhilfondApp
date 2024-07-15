@@ -5,11 +5,14 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'App',
   components: {},
+  computed: {
+    ...mapGetters('users', ['getUserList']),
+  },
   mounted() {
     this.fetchUsers();
   },
