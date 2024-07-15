@@ -1,15 +1,20 @@
 <template>
   <div id="app">
+    <HeaderBase></HeaderBase>
     <button>fff</button>
+    <h1>GGGG</h1>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import HeaderBase from '@/components/HeaderBase.vue';
 
 export default {
   name: 'App',
-  components: {},
+  components: {
+    HeaderBase,
+  },
   computed: {
     ...mapGetters('users', ['getUserList']),
   },
@@ -22,13 +27,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import './assets/main.scss';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
 }
 </style>
