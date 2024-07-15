@@ -22,7 +22,7 @@ module.exports = {
         singleQuote: true, // Устанавливает одинарные кавычки для Prettier
       },
     ],
-    'quotes': ['error', 'single'], // Устанавливает одинарные кавычки для ESLint
-    'semi': ['error', 'always'], 
+    quotes: ['error', 'single'], // Устанавливает одинарные кавычки для ESLint
+    semi: ['error', 'always'],
   },
 };
