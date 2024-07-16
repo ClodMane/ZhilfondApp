@@ -20,11 +20,13 @@
   font-size: 32px;
   font-weight: 700;
   color: $primary-color;
+  cursor: pointer;
   }
   &__user-info {
   font-size: 16px;
   font-weight: 400;
   color: $heading-text;
+  cursor: pointer;
   }
 }
 </style>

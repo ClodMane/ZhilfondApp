@@ -1,19 +1,20 @@
 <template>
   <div id="app">
     <HeaderBase></HeaderBase>
-    <button>fff</button>
-    <h1>GGGG</h1>
+    <BaseWrapper></BaseWrapper>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import HeaderBase from '@/components/HeaderBase.vue';
+import BaseWrapper from '@/components/BaseWrapper.vue';
 
 export default {
   name: 'App',
   components: {
     HeaderBase,
+    BaseWrapper,
   },
   computed: {
     ...mapGetters('users', ['getUserList']),
