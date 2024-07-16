@@ -4,20 +4,35 @@
     <BaseInput></BaseInput>
     <div class="sidebar-header">Результаты</div>
     <div class="results-wrappert">
-      <UserCard></UserCard>
+      <UserCard
+        @mouseover.native="onMouseOver(item)"
+        v-for="(item, i) in getUserList?.data"
+        :key="i"
+        :user="item"
+      ></UserCard>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import BaseInput from '@/components/BaseInput.vue';
 import UserCard from '@/components/UserCard.vue';
 
 export default {
-  name: 'App',
+  name: 'SideBar',
   components: {
     BaseInput,
     UserCard,
+  },
+  computed: {
+    ...mapGetters('users', ['getUserList']),
+  },
+  methods: {
+    onMouseOver(user) {
+      console.log(user);
+      this.$emit('changeUser', user);
+    },
   },
 };
 </script>
@@ -26,7 +41,8 @@ export default {
 .sidebar-wrapper {
     display: flex;
     flex-direction: column;
-    width: 296px;
+    width: 374px;
+    min-width: 374px;
     height: 100%;
     border-right: 1px solid #DEDEDD;
     padding: 0 20px;
@@ -36,5 +52,8 @@ export default {
     font-weight: 600;
     font-size: 16px;
     margin: 22px 0;
+}
+.results-wrappert {
+  overflow-y: auto;
 }
 </style>

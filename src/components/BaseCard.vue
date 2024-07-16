@@ -5,14 +5,16 @@
     </div>
     <div class="information-block">
       <div class="information-block__main">
-        <div class="row"><div class="row-bold head">Имя Фамилия</div></div>
+        <div class="row">
+          <div class="row-bold head">{{ user.name }}</div>
+        </div>
         <div class="row">
           <div class="row-bold">email:</div>
-          <div class="row-text">Текст email</div>
+          <div class="row-text">{{ user.email }}</div>
         </div>
         <div class="row">
           <div class="row-bold">phone:</div>
-          <div class="row-text">Т79996249642</div>
+          <div class="row-text">{{ user.phone }}</div>
         </div>
       </div>
       <div class="information-block__description">
@@ -35,6 +37,18 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'BaseCard',
+  props: {
+    user: {
+      type: Object,
+      default: () => {},
+    },
+  },
+};
+</script>
+
 <style lang="scss" scoped>
 @import '.././assets/main.scss';
 
@@ -44,6 +58,7 @@
   width: 100%;
   height: 100%;
   padding: 30px;
+  max-width: 1440px;
 }
 .image-wrapper {
   display: block;
