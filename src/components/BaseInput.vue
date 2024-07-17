@@ -3,7 +3,7 @@
     <input
       type="text"
       class="input"
-      placeholder="Введите Id или имя"
+      placeholder="Введите Id или Username"
       @input="handleDebouncedInput"
     />
   </div>

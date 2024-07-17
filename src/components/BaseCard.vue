@@ -71,9 +71,10 @@ export default {
     background-image: url('.././assets/images/rectangle 4.svg');
 }
 .information-block {
-    width: 100%;
+    width: auto;
     height: 100%;
-    max-width: 440px;
+    max-width: 34%;
+    margin-left: 61px;
 }
 .row {
     display: flex;
@@ -102,7 +103,4 @@ export default {
 .description {
     padding: 20px 0 25px;
     }
-.information-block {
-    margin-left: 61px;
-}
 </style>
