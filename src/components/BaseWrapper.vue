@@ -44,13 +44,13 @@ export default {
   box-shadow: 0px 0px 10px 0px #0000001A;
 }
 .alt-text {
-  display: flex;
-  justify-content: center; // Центрирование по горизонтали
-  align-items: center; // Центрирование по вертикали
-  width: 100%; // Занять всю ширину контейнера
-  height: 100%; // Занять всю высоту контейнера
-  text-align: center;
-  color: #76787D;
-  font-size: 14px;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #76787D;
+    font-size: 14px;
+  }
 </style>

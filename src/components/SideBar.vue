@@ -3,13 +3,19 @@
     <div class="sidebar-header">Поиск сотрудников</div>
     <BaseInput @input-change="onInput"></BaseInput>
     <div class="sidebar-header">Результаты</div>
-    <div class="results-wrappert">
-      <UserCard
-        @mouseover.native="onMouseOver(item)"
-        v-for="(item, i) in getUserList?.data"
-        :key="i"
-        :user="item"
-      ></UserCard>
+    <div class="results-wrapper">
+      <div v-if="getUserList">
+        <div v-if="getUserList?.data.length">
+          <UserCard
+            @mouseover.native="onMouseOver(item)"
+            v-for="(item, i) in getUserList?.data"
+            :key="i"
+            :user="item"
+          ></UserCard>
+        </div>
+        <div v-else class="alt-text">ничего не найдено</div>
+      </div>
+      <div v-else class="alt-text">начните поиск</div>
     </div>
   </div>
 </template>
@@ -59,7 +65,12 @@ export default {
     font-size: 16px;
     margin: 22px 0;
 }
-.results-wrappert {
+.results-wrapper {
   overflow-y: auto;
+  padding: 10px;
 }
+.alt-text {
+    color: #76787D;
+    font-size: 14px;
+  }
 </style>
