@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
 import HeaderBase from '@/components/HeaderBase.vue';
 import BaseWrapper from '@/components/BaseWrapper.vue';
 
@@ -15,15 +14,6 @@ export default {
   components: {
     HeaderBase,
     BaseWrapper,
-  },
-  computed: {
-    ...mapGetters('users', ['getUserList']),
-  },
-  mounted() {
-    this.fetchUsers();
-  },
-  methods: {
-    ...mapActions('users', ['fetchUsers']),
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-wrapper">
     <div class="sidebar-header">Поиск сотрудников</div>
-    <BaseInput></BaseInput>
+    <BaseInput @input-change="onInput"></BaseInput>
     <div class="sidebar-header">Результаты</div>
     <div class="results-wrappert">
       <UserCard
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import BaseInput from '@/components/BaseInput.vue';
 import UserCard from '@/components/UserCard.vue';
 
@@ -29,9 +29,15 @@ export default {
     ...mapGetters('users', ['getUserList']),
   },
   methods: {
+    ...mapActions('users', ['fetchUsers']),
+
     onMouseOver(user) {
       console.log(user);
       this.$emit('changeUser', user);
+    },
+    onInput(value) {
+      const request = `?${value}`;
+      this.fetchUsers(request);
     },
   },
 };
