@@ -15,8 +15,8 @@ const usersStore = {
     },
   },
   actions: {
-    async fetchUsers({ commit }) {
-      const response = await axios.get('/users');
+    async fetchUsers({ commit }, payload) {
+      const response = await axios.get(`/users/${payload}`);
       commit('SET_USERS', response);
     },
   },

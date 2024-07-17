@@ -1,34 +1,37 @@
 <template>
   <div id="app">
-    <button>fff</button>
+    <HeaderBase></HeaderBase>
+    <BaseWrapper></BaseWrapper>
+    <BasePreloader v-if="getActivePreloader"></BasePreloader>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
+import HeaderBase from '@/components/HeaderBase.vue';
+import BaseWrapper from '@/components/BaseWrapper.vue';
+import BasePreloader from '@/components/BasePreloader.vue';
 
 export default {
   name: 'App',
-  components: {},
+  components: {
+    HeaderBase,
+    BaseWrapper,
+    BasePreloader,
+  },
   computed: {
-    ...mapGetters('users', ['getUserList']),
-  },
-  mounted() {
-    this.fetchUsers();
-  },
-  methods: {
-    ...mapActions('users', ['fetchUsers']),
+    ...mapGetters('preloader', ['getActivePreloader']),
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+@import './assets/main.scss';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
 }
 </style>
