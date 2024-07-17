@@ -30,7 +30,9 @@ export default {
     height: 70px;
     box-shadow: 0px 0px 10px 0px #0000001A;
     border-radius: 10px;
+    overflow: hidden;
     margin-bottom: 18px;
+    justify-content: space-between;
     cursor: pointer;
     &:hover {
       .information-block {
@@ -49,7 +51,7 @@ export default {
     background-image: url('.././assets/images/rectangle_small.svg');
 }
 .information-block {
-  width: 75%;
+  flex: 1;
   padding: 15px;
 }
 .name {
