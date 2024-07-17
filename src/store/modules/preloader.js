@@ -14,7 +14,6 @@ const preloader = {
   },
   actions: {
     setActivePreloader({ commit }, payload) {
-      console.log(payload);
       commit('SET_ACTIVE_PRELOADER', payload);
     },
   },

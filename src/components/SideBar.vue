@@ -41,7 +41,6 @@ export default {
     }),
 
     onMouseOver(user) {
-      console.log(user);
       this.$emit('changeUser', user);
     },
     async onInput(value) {
