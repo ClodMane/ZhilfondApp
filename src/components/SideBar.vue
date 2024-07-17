@@ -35,15 +35,20 @@ export default {
     ...mapGetters('users', ['getUserList']),
   },
   methods: {
-    ...mapActions('users', ['fetchUsers']),
+    ...mapActions({
+      fetchUsers: 'users/fetchUsers',
+      setActivePreloader: 'preloader/setActivePreloader',
+    }),
 
     onMouseOver(user) {
       console.log(user);
       this.$emit('changeUser', user);
     },
-    onInput(value) {
+    async onInput(value) {
       const request = `?${value}`;
-      this.fetchUsers(request);
+      this.setActivePreloader(true);
+      await this.fetchUsers(request);
+      this.setActivePreloader(false);
     },
   },
 };
